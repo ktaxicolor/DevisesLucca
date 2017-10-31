@@ -1,0 +1,9 @@
+C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevises\bin\Debug\LuccaDevises.exe.config
+C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevises\bin\Debug\LuccaDevises.exe
+C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevises\bin\Debug\LuccaDevises.pdb
+C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevises\bin\Debug\nunit.framework.dll
+C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevises\bin\Debug\nunit.framework.xml
+C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevises\obj\Debug\LuccaDevises.csproj.CoreCompileInputs.cache
+C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevises\obj\Debug\LuccaDevises.exe
+C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevises\obj\Debug\LuccaDevises.pdb
+C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevises\obj\Debug\LuccaDevises.csprojResolveAssemblyReference.cache
