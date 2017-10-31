@@ -9,6 +9,7 @@ namespace LuccaDevises
 {
     public class Program
     {
+        //TODO verif erreurs
         static void Main(string[] args)
         {
             // Setup 
@@ -19,12 +20,12 @@ namespace LuccaDevises
                 string filepath = args[0];
                 FileParser parser = new FileParser(filepath);
                 var data = parser.GetFileData(parser.ReadFile());
-                ExchangeRateNode exchangeRatestree = EschangeRateNodeBuilder.BuildFromFileData(data);
+                ExchangeRateNode exchangeRatestree = ExchangeRateNodeBuilder.BuildFromFileData(data);
 
                 // Look for quickest currency exchange
                 ExchangeRateNode bestEndResultNode = SearchBreadthFirst(exchangeRatestree, data);
 
-
+                // Return result
                 if (bestEndResultNode == null || bestEndResultNode.Equals(exchangeRatestree))
                 {
                     console.WriteErrorData(data);
@@ -38,9 +39,13 @@ namespace LuccaDevises
             {
                 console.WriteErrorArgs();
             }
-            catch(Exception fnfe)
+            catch (DataFileFormatException dffe)
+            {
+                console.WriteError(dffe.Message);
+            }
+            catch (Exception e)
             {  
-                    console.WriteError(fnfe.Message);
+                console.WriteError(e.Message);
             }
             
             Console.ReadKey();
