@@ -26,13 +26,13 @@ namespace LuccaDevises
         public List<string> ReadFile()
         {
             List<string> lines = new List<string>();
+
             using (StreamReader reader = new StreamReader(filePath))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
                     lines.Add(line.Trim());
-                    Console.WriteLine(line); // TODO delete
                 }
             }
             return lines;

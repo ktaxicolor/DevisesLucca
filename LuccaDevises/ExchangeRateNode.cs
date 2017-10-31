@@ -86,12 +86,12 @@ namespace LuccaDevises
             }
         }
 
-        internal bool isNotVisitedYet()
+        internal bool IsNotVisitedYet()
         {
             return !isVisited;
         }
 
-        internal void markAsVisited()
+        internal void MarkAsVisited()
         {
             isVisited = true;
         }
