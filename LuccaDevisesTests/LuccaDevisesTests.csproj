@@ -44,8 +44,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CurrencyTest.cs" />
+    <Compile Include="Model\CurrencyTest.cs" />
+    <Compile Include="Model\ExchangeRateNodeTest.cs" />
+    <Compile Include="Model\ExchangeRateTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

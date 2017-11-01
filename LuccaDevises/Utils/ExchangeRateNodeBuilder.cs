@@ -24,12 +24,12 @@ namespace LuccaDevises
 
                 if (currentExch.InitialCurrency.Equals(root.Data.FinalCurrency))
                 {
-                    root.AddSon(new ExchangeRateNode(root, currentExch));
+                    root.AddChild(new ExchangeRateNode(root, currentExch));
                     availableExchRates.RemoveAt(exchIndex);
                 }
                 else if (currentExch.FinalCurrency.Equals(root.Data.FinalCurrency))
                 {
-                    root.AddSon(new ExchangeRateNode(root, currentExch.InverseRate()));
+                    root.AddChild(new ExchangeRateNode(root, currentExch.InverseRate()));
                     availableExchRates.RemoveAt(exchIndex);
                 }
             }

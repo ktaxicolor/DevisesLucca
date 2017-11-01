@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace LuccaDevises
 {
@@ -7,7 +6,7 @@ namespace LuccaDevises
     public class ExchangeRateNode
     {
         public ExchangeRateNode Root { get; set; }
-        public List<ExchangeRateNode> Children { get; set; }
+        public List<ExchangeRateNode> Children { get; private set; }
         public ExchangeRate Data { get; set; }
         public List<ExchangeRateNode> Siblings { get
             {
@@ -35,24 +34,20 @@ namespace LuccaDevises
             Children = new List<ExchangeRateNode>();
         }
 
-        public void AddSon(ExchangeRateNode exchangeRateNode)
+        public void AddChild(ExchangeRateNode exchangeRateNode)
         {
-            if (exchangeRateNode != null)
+            if (exchangeRateNode != null && Children != null)
             {
-                if (Children == null)
-                {
-                    Children = new List<ExchangeRateNode>();
-                }
-                Children.Add(exchangeRateNode);
+                Children.Add(exchangeRateNode);               
             }
         }
 
-        internal bool IsNotVisitedYet()
+        public bool IsNotVisitedYet()
         {
             return !isVisited;
         }
 
-        internal void MarkAsVisited()
+        public void MarkAsVisited()
         {
             isVisited = true;
         }
