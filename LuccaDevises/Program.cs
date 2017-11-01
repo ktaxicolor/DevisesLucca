@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,63 +9,95 @@ namespace LuccaDevises
 {
     public class Program
     {
+        //TODO verif erreurs
         static void Main(string[] args)
         {
-            // Get data from file
-            string filepath = args[0];
-            FileParser parser = new FileParser(filepath);
-            var data = parser.GetFileData(parser.ReadFile());
-            ExchangeRateNode exchangeRatestree = EschangeRateNodeBuilder.BuildFromFileData(data);
+            // Setup 
+            var console = new ConsoleWriter();
 
-            // Look for quickest currency exchange
-            // data.GoalCurrency, Amount
-            SearchBreadthFirst(exchangeRatestree, data);
+            try {
+                // Get data from file
+                string filepath = args[0];
+                FileParser parser = new FileParser(filepath);
+                var data = parser.GetFileData(parser.ReadFile());
+                ExchangeRateNode exchangeRatestree = ExchangeRateNodeBuilder.BuildFromFileData(data);
 
+                // Look for quickest currency exchange
+                ExchangeRateNode bestEndResultNode = SearchBreadthFirst(exchangeRatestree, data);
 
-            //TODO : breadth first search
-            //TODO : tests
-
+                // Return result
+                if (bestEndResultNode == null || bestEndResultNode.Equals(exchangeRatestree))
+                {
+                    console.WriteErrorData(data);
+                }
+                else
+                {
+                    console.WriteResult(ComputeResultAmount(bestEndResultNode, data.Amount));
+                }
+            }
+            catch (IndexOutOfRangeException iore)
+            {
+                console.WriteErrorArgs();
+            }
+            catch (DataFileFormatException dffe)
+            {
+                console.WriteError(dffe.Message);
+            }
+            catch (Exception e)
+            {  
+                console.WriteError(e.Message);
+            }
+            
             Console.ReadKey();
         }
 
-        private double SearchBreadthFirst(ExchangeRateNode treeRoot, FileData data)
+        private static int ComputeResultAmount(ExchangeRateNode bestEndResultNode, int initialAmount)
         {
-            double amountFinal = 0;
+            ExchangeRateNode node = bestEndResultNode;
+            double finalAmount = initialAmount;
+            while(node.Root != null)
+            {
+                finalAmount = Math.Round(finalAmount * node.Data.Rate, 4);
+                node = node.Root;
+            }
+            return (int)Math.Round(finalAmount);
+        }
+
+        private static ExchangeRateNode SearchBreadthFirst(ExchangeRateNode treeRoot, FileData data)
+        {
             if(treeRoot == null)
-            { return amountFinal; }
+            { return null; }
+
             Queue<ExchangeRateNode> queue = new Queue<ExchangeRateNode>();
             queue.Enqueue(treeRoot);
-
-            treeRoot.markAsVisited();
+            treeRoot.MarkAsVisited();
 
             while (queue.Count >0)
             {
                 var nextNode = queue.Dequeue();
-
-                // do stuff 
-                if(nextNode.Data.FinalCurrency.Equals(data.GoalCurrency))
+                if (nextNode.Data.FinalCurrency.Equals(data.GoalCurrency))
                 {
-                    return amountFinal;
+                    return nextNode;
                 }
-                Console.WriteLine("current Node is : " + nextNode.Data.InitialCurrency.Trigram + " - " + nextNode.Data.FinalCurrency.Trigram);
-
+                
                 foreach(ExchangeRateNode sibling in nextNode.Siblings)
                 {
-                    if(sibling.isNotVisitedYet())
+                    if(sibling.IsNotVisitedYet())
                     {
                         queue.Enqueue(sibling);
-                        sibling.markAsVisited();
+                        sibling.MarkAsVisited();
                     }
                 }
                 foreach(ExchangeRateNode child in nextNode.Children)
                 {
-                    if (child.isNotVisitedYet())
+                    if (child.IsNotVisitedYet())
                     {
                         queue.Enqueue(child);
-                        child.markAsVisited();
+                        child.MarkAsVisited();
                     }
                 }
             }
+            return treeRoot;
 
         }
     }

@@ -45,6 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleWriter.cs" />
+    <Compile Include="Currency.cs" />
+    <Compile Include="ExchangeRate.cs" />
+    <Compile Include="ExchangeRateNodeBuilder.cs" />
     <Compile Include="FileData.cs" />
     <Compile Include="FileParser.cs" />
     <Compile Include="Program.cs" />

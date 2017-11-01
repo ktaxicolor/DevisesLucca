@@ -26,13 +26,13 @@ namespace LuccaDevises
         public List<string> ReadFile()
         {
             List<string> lines = new List<string>();
+
             using (StreamReader reader = new StreamReader(filePath))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
                     lines.Add(line.Trim());
-                    Console.WriteLine(line); // TODO delete
                 }
             }
             return lines;
@@ -48,11 +48,17 @@ namespace LuccaDevises
                 string[] firstLine = lines[0].Split(SEPARATOR);
                 if (firstLine != null && firstLine.Length == 3)
                 {
-                    data.Amount = int.Parse(firstLine[1]);
-                    data.StartingCurrency = new Currency(firstLine[0]);
-                    data.GoalCurrency = new Currency(firstLine[2]);
+                    try
+                    {
+                        data.Amount = int.Parse(firstLine[1]);
+                        data.StartingCurrency = new Currency(firstLine[0]);
+                        data.GoalCurrency = new Currency(firstLine[2]);
+                    }catch(Exception e)
+                    {
+                        throw new DataFileFormatException(FormatExMessages.INVAL_FIRST_LINE +"\n"+ e.Message);
+                    }
                 }
-                else { throw new DataFileFormatException(FormatExMessages.INVAL_FIRST_LINE); }
+
 
                 //second line : 
                 int exchangeRatesCount;

@@ -1,8 +1,0 @@
-C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevisesTests\bin\Debug\LuccaDevisesTests.dll
-C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevisesTests\bin\Debug\LuccaDevisesTests.pdb
-C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevisesTests\bin\Debug\nunit.framework.dll
-C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevisesTests\bin\Debug\nunit.framework.xml
-C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevisesTests\obj\Debug\LuccaDevisesTests.csprojResolveAssemblyReference.cache
-C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevisesTests\obj\Debug\LuccaDevisesTests.csproj.CoreCompileInputs.cache
-C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevisesTests\obj\Debug\LuccaDevisesTests.dll
-C:\Users\Klaou\source\repos\LuccaDevises\LuccaDevisesTests\obj\Debug\LuccaDevisesTests.pdb
