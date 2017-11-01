@@ -13,7 +13,7 @@ namespace LuccaDevises
         private string trigram;
         public string Trigram
         {
-            set { if (value != null && value.Length == 3) { trigram = value; } else { throw new FormatException(ERR_TRIGRAM+ value); } }
+            private set { if (value != null && value.Length == 3) { trigram = value; } else { throw new FormatException(ERR_TRIGRAM+ value); } }
             get { return trigram.ToUpperInvariant(); }
         }
         public Currency(string pTrigram)

@@ -45,15 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleWriter.cs" />
-    <Compile Include="Currency.cs" />
-    <Compile Include="ExchangeRate.cs" />
-    <Compile Include="ExchangeRateNodeBuilder.cs" />
-    <Compile Include="FileData.cs" />
-    <Compile Include="FileParser.cs" />
+    <Compile Include="Utils\ConsoleWriter.cs" />
+    <Compile Include="Model\Currency.cs" />
+    <Compile Include="Model\ExchangeRate.cs" />
+    <Compile Include="Utils\ExchangeRateNodeBuilder.cs" />
+    <Compile Include="Model\FileData.cs" />
+    <Compile Include="Utils\FileParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ExchangeRateNode.cs" />
+    <Compile Include="Model\ExchangeRateNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
