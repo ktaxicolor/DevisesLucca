@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LuccaDevises.Utils
 {
@@ -11,6 +7,18 @@ namespace LuccaDevises.Utils
         public static double RoundRate(double rate)
         {
             return Math.Round(rate, 4);
+        }
+
+        public static int ComputeResultAmount(ExchangeRateNode bestEndResultNode, int initialAmount)
+        {
+            ExchangeRateNode node = bestEndResultNode;
+            double finalAmount = initialAmount;
+            while (node.Root != null)
+            {
+                finalAmount = RoundRate(finalAmount * node.Data.Rate);
+                node = node.Root;
+            }
+            return (int)Math.Round(finalAmount);
         }
     }
 }

@@ -46,10 +46,21 @@ namespace LuccaDevisesTests
             return new ExchangeRateNode(GetRootExchangeRateNode(), GetExchangeRate());
         }
 
+        public static ExchangeRateNode GetExchangeRateNode(Currency initialCurr, Currency finalCurr)
+        {
+            return new ExchangeRateNode(GetRootExchangeRateNode(), GetExchangeRate(TestConst.RATE, initialCurr, finalCurr));
+        }
+
         public static ExchangeRateNode GetChildExchangeRateNode(ExchangeRateNode parent)
         {
             return new ExchangeRateNode(parent, GetExchangeRate());
         }
+
+        public static ExchangeRateNode GetChildExchangeRateNode(ExchangeRateNode parent, Currency initialCurr, Currency finalCurr)
+        {
+            return new ExchangeRateNode(parent, GetExchangeRate(TestConst.RATE, initialCurr, finalCurr));
+        }
+
 
         public static ExchangeRateNode GetRootExchangeRateNode()
         {
@@ -96,7 +107,15 @@ namespace LuccaDevisesTests
             };
 
             return list;
+        }
 
+        public static ExchangeRateNode GetABestNode()
+        {
+            var root = GetRootExchangeRateNode();
+            root.AddChild(GetChildExchangeRateNode(root, GetCurrency(TestConst.STARTING_TRIGRAM), GetCurrency(TestConst.VALID_TRIGRAM_1)));
+            var firstChild = root.Children.First();
+            firstChild.AddChild(GetChildExchangeRateNode(firstChild, GetCurrency(TestConst.VALID_TRIGRAM_1), GetCurrency(TestConst.GOAL_TRIGRAM)));
+            return firstChild.Children.First();
         }
 
         public static string PrintExchangeNodeTree(ExchangeRateNode root, string printedTree)
@@ -133,5 +152,7 @@ namespace LuccaDevisesTests
         {
             return data.InitialCurrency.Trigram + "-" + data.FinalCurrency.Trigram;
         }
+
+
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\ExchangeRateNode.cs" />
+    <Compile Include="Utils\NodeSearcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

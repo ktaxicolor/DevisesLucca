@@ -20,6 +20,7 @@ namespace LuccaDevisesTests.Utils
         public void Should_return_root_node_of_built_node_tree()
         {
             var rootOfBuiltTree = ExchangeRateNodeBuilder.BuildFromFileData(data);
+
             Assert.IsNull(rootOfBuiltTree.Root);
             Assert.IsNotEmpty(rootOfBuiltTree.Children);
         }
