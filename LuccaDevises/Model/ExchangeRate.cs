@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LuccaDevises.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace LuccaDevises
         public double Rate
         {
             get { return rate; }
-            set { rate = Math.Round(value, 4); }
+            set { rate = AccountingUtils.RoundRate(value); }
         }
         public Currency InitialCurrency { get; set; }
         public Currency FinalCurrency { get; set; }
@@ -33,6 +34,7 @@ namespace LuccaDevises
             InitialCurrency = tmpFinalCur;
             return this;
         }
+
 
     }
 }

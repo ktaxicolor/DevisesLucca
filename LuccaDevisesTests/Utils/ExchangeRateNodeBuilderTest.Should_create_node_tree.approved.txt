@@ -1,0 +1,5 @@
+﻿parent : NULL; initCurrency : ---; finalCurrency : TOP; rate : 0; children count : 1; 
+parent : ----TOP; initCurrency : TOP; finalCurrency : VA1; rate : 1,1111; children count : 2; 
+parent : TOP-VA1; initCurrency : VA1; finalCurrency : END; rate : 3,3333; children count : 1; 
+parent : VA1-END; initCurrency : END; finalCurrency : VA2; rate : 2,2222; children count : 0; 
+parent : TOP-VA1; initCurrency : VA1; finalCurrency : VA2; rate : 1,1111; children count : 0; 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LuccaDevises.Utils;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,7 +10,6 @@ namespace LuccaDevises
 {
     public class Program
     {
-        //TODO verif erreurs
         static void Main(string[] args)
         {
             // Setup 
@@ -57,7 +57,7 @@ namespace LuccaDevises
             double finalAmount = initialAmount;
             while(node.Root != null)
             {
-                finalAmount = Math.Round(finalAmount * node.Data.Rate, 4);
+                finalAmount = AccountingUtils.RoundRate(finalAmount * node.Data.Rate);
                 node = node.Root;
             }
             return (int)Math.Round(finalAmount);

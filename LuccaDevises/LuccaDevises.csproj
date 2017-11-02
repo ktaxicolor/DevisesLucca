@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utils\AccountingUtils.cs" />
     <Compile Include="Utils\ConsoleWriter.cs" />
     <Compile Include="Model\Currency.cs" />
     <Compile Include="Model\ExchangeRate.cs" />

@@ -18,7 +18,7 @@ namespace LuccaDevisesTests.Model
 
         #region Adding child
         [Test]
-        public void should_add_child_in_node_children_collection()
+        public void Should_add_child_in_node_children_collection()
         {
             var childToAdd = TestHelper.GetExchangeRateNode();
             parent.AddChild(childToAdd);
@@ -29,7 +29,7 @@ namespace LuccaDevisesTests.Model
 
         #region Siblings
         [Test]
-        public void should_return_collection_of_siblings_if_parent_exists()
+        public void Should_return_collection_of_siblings_if_parent_exists()
         {
             var child1 = TestHelper.GetChildExchangeRateNode(parent);
             var child2 = TestHelper.GetChildExchangeRateNode(parent);
@@ -44,7 +44,7 @@ namespace LuccaDevisesTests.Model
         }
 
         [Test]
-        public void should_return_empty_collection_if_parent_doesnt_exist()
+        public void Should_return_empty_collection_if_parent_doesnt_exist()
         {
             Assert.IsNotNull(parent.Siblings);
         }
@@ -52,7 +52,7 @@ namespace LuccaDevisesTests.Model
 
         #region Marking as visited
         [Test]
-        public void should_mark_node_as_visited()
+        public void Should_mark_node_as_visited()
         {
             var node = TestHelper.GetExchangeRateNode();
             node.MarkAsVisited();
@@ -61,7 +61,7 @@ namespace LuccaDevisesTests.Model
         }
 
         [Test]
-        public void should_mark_a_new_node_as_not_visited()
+        public void Should_mark_a_new_node_as_not_visited()
         {
             var node = TestHelper.GetExchangeRateNode();
 
