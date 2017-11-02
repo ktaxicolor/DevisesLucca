@@ -1,3 +1,3 @@
 DevisesLucca  
 
-Usage : LuccaDevises <path to file>
+Usage : LuccaDevises path_to_file
